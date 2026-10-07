@@ -1,0 +1,26 @@
+# Netlify: static site, no build step. The repository root is the website.
+[build]
+  publish = "."
+  command = ""
+
+# Cache images and the CV for a week; always revalidate the HTML so updates show up immediately.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Short, friendly URLs
+[[redirects]]
+  from = "/cv"
+  to = "/cv.pdf"
+  status = 301
+
+[[redirects]]
+  from = "/design-system"
+  to = "/design-system/index.html"
+  status = 200
