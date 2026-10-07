@@ -1,0 +1,1035 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consuelo Romano</title>
+<meta name="theme-color" content="#f6f2ec">
+<meta name="description" content="Consuelo Romano — product designer and CPACC-certified accessibility advocate, based in Malmö. Case studies, writing and CV.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Cpath fill='%231b1d2b' d='M37.5958 27.7895C37.5492 32.6588 38.7557 37.4536 41.0921 41.6843C43.4529 45.9253 46.8622 49.4437 50.9719 51.8798C55.2269 54.4663 60.0356 55.7595 65.398 55.7595C70.1784 55.7595 74.4043 54.9474 78.0757 53.3233C81.747 51.6992 85.39 48.9623 89.0045 45.1126C89.4552 44.6117 89.9531 44.1584 90.4907 43.7593C90.8975 43.5528 91.3496 43.4596 91.8021 43.489H94.0754C95.3578 43.489 95.999 44.692 95.999 47.098C95.999 56.1206 93.9881 64.3314 89.9662 71.7303C85.9443 79.1292 80.2616 85.0236 72.918 89.4135C65.5738 93.8045 57.1808 96 47.7389 96C38.7626 96 30.6606 94.0451 23.433 90.1352C16.3193 86.3364 10.3818 80.5531 6.29642 73.4434C2.09881 66.2256 0 57.8648 0 48.361C0 39.2182 2.09837 31.0074 6.29511 23.7288C10.4919 16.4501 16.5246 10.6759 24.3933 6.40608C32.2623 2.13536 41.3261 0 51.5848 0C58.929 0 65.4864 1.11279 71.257 3.33837C77.0276 5.56394 81.6031 8.75139 84.9837 12.9007C88.3069 16.8881 90.1095 21.9876 90.0549 27.2465C90.0549 33.8631 87.8108 39.3669 83.3227 43.7579C78.8345 48.149 73.0931 50.3449 66.0984 50.3458C59.5701 50.3458 54.0615 48.1503 49.5725 43.7593C45.0834 39.3683 42.8394 33.9846 42.8402 27.6081C42.8402 22.9164 44.414 19.0668 47.5614 16.0593C50.7089 13.0518 54.7308 11.5481 59.6271 11.5481C59.9592 11.0077 60.1405 10.3833 60.151 9.74344C60.151 8.05916 58.927 7.21702 56.4789 7.21702C51.3492 7.21702 46.9193 9.23209 43.1893 13.2622C39.4592 17.2924 37.5947 22.1348 37.5958 27.7895Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* ==========================================================================
+   CONSUELO ROMANO — DESIGN SYSTEM v1
+   Grid: 12 columns, 1200px max, fluid margins. Spacing: 4px base, 10 steps.
+   Type: Hanken Grotesk only, 7 roles, 2 weights in use (400 / 500).
+   Lines: one hairline. Radius: pills only. No fills, no shadows.
+   Density rule: tight inside a group (8–16), medium between groups (24–48),
+   generous between sections (96). Whitespace is spent between, never inside.
+   ========================================================================== */
+:root{
+  /* Color: "Indigo and clay". Warm linen ground, indigo ink and marks, dusty clay as the small earthy detail.
+     --accent = light indigo for fills (with ink text); --mark = deep indigo for thin marks; --clay-* = tag detail. */
+  --bg:#f6f2ec;
+  --surface:#ede7df;
+  --raised:#e4ddd3;
+  --fg:#1b1d2b;
+  --muted:#5d5a66;
+  --line:#8c8590; /* component outlines, 3.2:1 on --bg, meets WCAG 1.4.11 */
+  --border:var(--line);
+  --divider:#e4ddd3;
+  --accent:#a9b2e3;
+  --mark:#323d86;
+  --on-accent:#1b1d2b;
+  --toc-tint:#e3e6f6;
+  --toc-ink:#323d86;
+  --clay-bg:#efd9cf;
+  --clay-fg:#6e3029;
+  --todo:#dfe3f7;
+  color-scheme:light;
+
+  /* Type */
+  --font:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --fs-display:clamp(30px, 3.2vw, 44px);
+  --fs-h2:clamp(22px, 2vw, 28px);
+  --fs-h3:18px;
+  --fs-lead:18px;
+  --fs-body:16px;
+  --fs-small:14px;
+  --fs-label:13px;
+
+  /* Space (4px base) */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px; --s10:128px;
+  --section:clamp(80px, 9vw, 128px);  /* between sections: the only separator now that dividers are gone */
+  --group:clamp(32px, 3.5vw, 48px);    /* heading to its content */
+  --half:clamp(56px, 6vw, 80px);       /* equal space above and below every section divider */
+  --item:var(--s6);                    /* between items in a list */
+
+  /* Grid */
+  --max:1200px;
+  --margin:clamp(20px, 5vw, 80px);
+  --col-gap:clamp(16px, 2vw, 24px);
+  --measure:64ch;
+  --header-h:72px;
+
+  /* Lines */
+  --hair:1px solid var(--line);
+  --rule:1px solid var(--divider);
+}
+:root[data-mode="dark"]{ --bg:#14151d; --surface:#1d1e28; --raised:#2b2c38; --fg:#f6f2ec; --muted:#aaa7b4; --line:#6b6977; --border:#6b6977; --divider:#262733; --accent:#a9b2e3; --mark:#a9b2e3; --on-accent:#1b1d2b; --toc-tint:#262b47; --toc-ink:#c9d0f5; --clay-bg:#3d2522; --clay-fg:#e3b9a8; --todo:#2e3466; color-scheme:dark }
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--header-h) + var(--s5))}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+body{margin:0; background:var(--bg); color:var(--fg); font:400 var(--fs-body)/1.6 var(--font); -webkit-font-smoothing:antialiased; overflow-x:clip}
+a{color:inherit; text-decoration:none}
+img{max-width:100%; display:block; background:var(--surface)}
+figure{margin:0; display:grid; gap:var(--s3)}
+figcaption{font-size:var(--fs-small); color:var(--muted)}
+p{margin:0}
+:focus-visible{outline:2px solid var(--mark); outline-offset:4px; border-radius:2px}
+::selection{background:var(--accent); color:var(--on-accent)}
+/* Page switch: a quick fade instead of a visible scroll */
+@keyframes enter{from{opacity:0}to{opacity:1}}
+.enter{animation:enter .28s ease-out}
+@media (prefers-reduced-motion: reduce){ .enter{animation:none} }
+mark.todo{background:var(--todo); color:inherit; padding:0 .2em}
+
+/* ---------- Type roles ---------- */
+h1,h2,h3{margin:0; font-weight:500; text-wrap:balance}
+.t-display{font-size:var(--fs-display); line-height:1.18; letter-spacing:-0.02em}
+.t-h2, h2{font-size:var(--fs-h2); line-height:1.25; letter-spacing:-0.015em}
+.t-h3, h3{font-size:var(--fs-h3); line-height:1.35; letter-spacing:-0.005em}
+.t-lead{font-size:var(--fs-lead); line-height:1.6; color:var(--muted)}
+.t-small{font-size:var(--fs-small); line-height:1.55; color:var(--muted)}
+.label{font-size:var(--fs-label); line-height:1.4; font-weight:500; color:var(--muted)}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- Grid ---------- */
+.wrap{max-width:calc(var(--max) + 2 * var(--margin)); margin-inline:auto; padding-inline:var(--margin)}
+.grid{display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); column-gap:var(--col-gap); row-gap:var(--s5)}
+.c-1-4{grid-column:1 / span 4}
+.c-5-12{grid-column:5 / -1}
+.c-1-6{grid-column:1 / span 6}
+.c-7-12{grid-column:7 / -1}
+.c-1-8{grid-column:1 / span 8}
+.c-all{grid-column:1 / -1}
+
+/* ---------- Components: links, buttons, tags ---------- */
+.link{border-bottom:1px solid var(--mark); transition:background .2s, color .2s}
+.link:hover{background:var(--accent); color:var(--on-accent)}
+.btn{display:inline-flex; align-items:center; gap:var(--s2); padding:10px 18px; border:1px solid var(--fg); border-radius:999px; font-size:15px; font-weight:500; background:none; color:inherit; cursor:pointer; transition:background .2s, color .2s}
+.btn:hover{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.btn-text{font:inherit; font-size:var(--fs-small); color:var(--muted); background:none; border:0; padding:0; cursor:pointer}
+.btn-text:hover{color:var(--fg)}
+.copy-link{font:inherit; color:inherit; background:none; border:0; border-bottom:1px solid var(--mark); padding:0; cursor:pointer; display:inline-flex; align-items:center; gap:6px}
+.tags{display:flex; flex-wrap:wrap; gap:var(--s2)}
+.tag{padding:4px 10px; background:var(--raised); border-radius:4px; font-size:var(--fs-small); color:var(--fg)} /* static facts: filled, square-ish, never outlined pills, so they never read as buttons */
+.skip{position:absolute; left:-9999px; top:var(--s3); background:var(--fg); color:var(--bg); padding:8px 14px; z-index:20}
+.skip:focus{left:var(--s3)}
+
+/* UI icons: precise, for controls. 16-unit grid, 1.5 stroke, round caps and joins, no wobble.
+   They size with the text (1em) and take its color. Expressive hand-drawn icons are for illustrations only. */
+.ui-icon{width:1em; height:1em; flex:none; vertical-align:-0.14em; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; overflow:visible}
+.btn .ui-icon, .link .ui-icon{margin-inline:2px}
+
+/* ---------- Header ---------- */
+header.site{position:sticky; top:env(safe-area-inset-top,0px); z-index:10; background:var(--bg); border-bottom:1px solid transparent; transition:border-color .2s}
+header.site.scrolled{border-color:var(--divider)}
+header.site .wrap{height:var(--header-h); display:flex; justify-content:space-between; align-items:center; gap:var(--s4)}
+.brand{display:inline-flex; align-items:center; gap:var(--s3); font-weight:500; letter-spacing:-0.01em}
+.logo{width:28px; height:28px; flex:none}
+.logo path{fill:var(--fg)}
+nav.main{display:flex; align-items:center; gap:var(--s1)}
+nav.main a, .theme{font:inherit; font-size:15px; color:var(--muted); padding:8px 12px; border-radius:999px; background:none; border:0; cursor:pointer; transition:color .2s, background .2s}
+nav.main a:hover, .theme:hover, nav.main a[aria-current="page"]{color:var(--fg); background:var(--raised)}
+.theme{display:inline-flex; align-items:center; gap:var(--s2); margin-left:var(--s2)}
+.theme svg{width:15px; height:15px}
+
+/* ---------- Section head (one pattern everywhere) ---------- */
+.sec{padding-top:var(--half)}
+.sec.grid{row-gap:0}
+.sec-head{align-items:baseline; margin-bottom:var(--group); padding-top:var(--half); border-top:var(--rule)}
+.head-stack{display:grid; gap:var(--s3)}
+.head-stack p{max-width:60ch}
+
+/* ---------- Home ---------- */
+.hero{padding-block:var(--s10) 0}
+.hero h1{grid-column:1 / span 10; max-width:32ch}
+.hero .actions{grid-column:1 / -1; display:flex; gap:var(--s5); margin-top:var(--s4)}
+
+.skills{grid-column:1 / -1; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); column-gap:var(--col-gap); row-gap:var(--s6)}
+.skill{display:grid; gap:var(--s2); align-content:start; padding-right:var(--s4)}
+/* Skill icons: hand-drawn, refined. Fine round strokes, small lifts in the line, a barely visible ink wobble. */
+.skill svg, .lists svg{width:56px; height:56px; margin-bottom:var(--s3); fill:none; stroke:var(--fg); stroke-width:2.15; stroke-linecap:round; stroke-linejoin:round; filter:url(#ink); overflow:visible}
+.skill svg .heavy, .lists svg .heavy{stroke-width:3.25}
+
+.split{grid-column:1 / -1; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:calc(var(--col-gap) * 3); align-items:start; padding-top:var(--half); border-top:var(--rule)}
+.col{min-width:0}
+.col-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:var(--group)}
+.col-head h2{font-size:clamp(26px, 2.4vw, 32px)}
+.col-head .label{font-size:15px; font-weight:400}
+.rows{list-style:none; margin:0; padding:0; display:grid}
+.rows.cards{gap:var(--s5)}
+
+/* Work card */
+.case{display:grid; padding:var(--s6); border:1px solid var(--border); transition:border-color .2s}
+.case:hover{border-color:var(--mark)}
+.case .thumb{aspect-ratio:2 / 1; overflow:hidden}
+.case .thumb img{width:100%; height:100%; object-fit:cover; transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.case:hover .thumb img{transform:scale(1.015)}
+.case-meta{display:flex; justify-content:space-between; align-items:center; gap:var(--s3); padding-block:var(--s4); border-bottom:var(--hair)}
+.case-meta .client{font-size:var(--fs-small); color:var(--muted)}
+.type{font:400 13px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing:.02em; color:var(--clay-fg); background:var(--clay-bg); padding:5px 8px; border-radius:4px; white-space:nowrap}
+.case-title{display:flex; justify-content:space-between; align-items:baseline; gap:var(--s4); padding-top:var(--s5)}
+.case-title h3{font-size:20px; font-weight:400}
+.case > p{margin-top:var(--s3); font-size:15px; color:var(--muted)}
+
+/* Writing row */
+.rows.list li{border-bottom:var(--rule)}
+.note{display:grid; grid-template-columns:7.5rem minmax(0,1fr) auto; gap:var(--s5); align-items:baseline; padding-block:var(--s5)}
+.rows.list li:first-child .note{padding-top:0}
+.note .when{display:grid; gap:2px; font-size:var(--fs-small); color:var(--muted)}
+.note > div{display:grid; gap:var(--s2)}
+.note h3{font-size:20px; font-weight:400}
+.go{color:var(--muted); transition:transform .2s, color .2s}
+.case:hover .go, .note:hover .go{transform:translateX(4px); color:var(--mark)}
+.case:hover h3, .note:hover h3{text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.2em}
+
+/* ---------- Inner pages ---------- */
+.page{padding-block:var(--s7) var(--s9)}
+.back{display:inline-block; font-size:15px; margin-bottom:var(--s7)}
+.page-head{row-gap:var(--s4)}
+.page-head .lead-wrap{grid-column:1 / span 8; display:grid; gap:var(--s4)}
+.meta{grid-column:1 / -1; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); column-gap:var(--col-gap); margin:var(--s7) 0 0; padding-top:var(--s4); border-top:var(--rule)}
+.meta div{display:grid; gap:var(--s1)}
+.meta dt, .meta dd{margin:0}
+.meta dd{font-size:15px}
+.cover{margin-top:var(--s7)}
+.cover img{width:100%}
+
+/* Overview: the 10-second read, full width */
+.overview{margin-top:var(--s7); display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); column-gap:var(--col-gap); row-gap:var(--s5)}
+.overview > div{display:grid; gap:var(--s2); align-content:start; padding-right:var(--s5)}
+.overview p{font-size:15px; color:var(--muted)}
+
+/* Case body: sticky index (3 cols) + content (9 cols) */
+.cs-body{margin-top:var(--section); display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); column-gap:var(--col-gap)}
+.toc{grid-column:1 / span 3; align-self:start; position:sticky; top:calc(var(--header-h) + var(--s5)); padding-right:var(--s5)}
+.toc ol{list-style:none; margin:var(--s3) 0 0; padding:0; display:grid; gap:2px; border-left:1px solid var(--divider)}
+.toc a{display:block; padding:6px var(--s3) 6px var(--s4); margin-left:-1px; border-left:3px solid transparent; border-radius:0 4px 4px 0; font-size:var(--fs-small); color:var(--muted); transition:color .2s, border-color .2s, background .2s}
+.toc a:hover{color:var(--fg); background:var(--raised)}
+/* You are here: thick indigo bar, indigo text, pale indigo tint (7.9:1 light / 9.1:1 dark) */
+.toc a[aria-current="true"]{color:var(--toc-ink); font-weight:500; border-left-color:var(--mark); background:var(--toc-tint)}
+.cs-content{grid-column:4 / -1; display:grid; gap:var(--section); min-width:0}
+
+/* Chapter: one group = heading + intro + content */
+.chap{display:grid; gap:var(--group); padding-top:var(--s5); border-top:var(--rule)}
+.chap:first-child{padding-top:0; border-top:0}
+.chap-head{display:grid; gap:var(--s3); max-width:var(--measure)}
+.chap-head .label{display:flex; gap:var(--s2)}
+.chap-head p{color:var(--muted)}
+.chap-head .statement{color:var(--fg)}
+.block{display:grid; gap:var(--s3); max-width:var(--measure)}
+.block p{color:var(--muted)}
+.statement{font-size:clamp(20px, 1.8vw, 24px); line-height:1.45; letter-spacing:-0.01em; max-width:44ch}
+
+.two-up{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--s6) var(--s7); align-items:center}
+.two-up.top{align-items:start}
+.cols{display:grid; grid-template-columns:repeat(var(--n, 3), minmax(0,1fr)); gap:var(--s5) var(--s6)}
+.cols > div, .cols > figure{display:grid; gap:var(--s2); align-content:start}
+.cols p{font-size:15px; color:var(--muted)}
+.cols p.strong{font-size:var(--fs-body); color:var(--fg)}
+.cols img{aspect-ratio:4/3; object-fit:cover; width:100%; margin-bottom:var(--s2)}
+
+.steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:var(--s5)}
+.steps li{display:grid; gap:var(--s1); align-content:start; padding-top:var(--s3); border-top:1px solid var(--mark)}
+.steps p{font-size:var(--fs-small); color:var(--muted)}
+
+.quotes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--s6) var(--s7)}
+.quote{margin:0; display:grid; gap:var(--s2); padding-left:var(--s4); border-left:var(--hair)}
+.quote blockquote{margin:0; font-size:var(--fs-body); line-height:1.6}
+
+.stats{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--s6)}
+.stat{display:grid; gap:var(--s2); align-content:start}
+.stat strong{font-size:clamp(28px, 2.8vw, 36px); line-height:1; font-weight:500; letter-spacing:-0.02em}
+.stat p{font-size:15px; color:var(--muted); max-width:26ch}
+
+.credits{margin:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--s4) var(--s6)}
+.credits div{display:grid; gap:2px}
+.credits dt{font-size:var(--fs-small); font-weight:500}
+.credits dd{margin:0; font-size:var(--fs-small); color:var(--muted)}
+.kv{margin:0; display:grid; border-top:var(--rule)}
+.kv div{display:grid; grid-template-columns:7rem minmax(0,1fr); gap:var(--s3); padding-block:var(--s2); border-bottom:var(--rule); font-size:15px}
+.kv dt{font-weight:500}
+.kv dd{margin:0; color:var(--muted)}
+.logos{background:#f6f2ec; padding:var(--s4) var(--s5); max-width:520px; border-radius:4px} /* linen: invisible on the light page, a soft card in dark */
+.logos img{background:none; mix-blend-mode:multiply}
+
+.pager{margin-top:var(--section); display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--s5); padding-top:var(--s5); border-top:var(--rule)}
+.pager a{display:grid; gap:var(--s1)}
+.pager a:last-child{text-align:right}
+.pager .t{font-size:var(--fs-h2); font-weight:500; letter-spacing:-0.015em}
+.pager a:hover .t{text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.2em}
+
+/* Writing posts */
+.prose{grid-column:1 / span 8; display:grid; gap:var(--s4); font-size:17px; line-height:1.7; max-width:var(--measure); margin-top:var(--s7)}
+.prose blockquote{margin:var(--s2) 0; padding-left:var(--s4); border-left:1px solid var(--fg); font-size:var(--fs-lead)}
+
+/* About */
+.about-hero{align-items:center}
+.about-hero .lead-wrap{grid-column:1 / span 6; display:grid; gap:var(--s5)}
+.about-hero img{grid-column:8 / -1; aspect-ratio:1/1; object-fit:cover; width:100%}
+.traits{margin:0; display:flex; flex-wrap:wrap; gap:var(--s2) var(--s3); font-size:15px; font-weight:500; color:var(--fg)}
+.traits span{color:var(--muted)}
+.now{margin:0; display:grid; gap:var(--s5)}
+.now div{display:grid; gap:var(--s1)}
+.now dt, .now dd{margin:0}
+.now dd{font-size:15px; line-height:1.55}
+.principles{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); column-gap:var(--col-gap); row-gap:var(--s6)}
+.principle{display:grid; gap:var(--s2); align-content:start; padding-right:var(--s4)}
+.lists{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--s6) var(--col-gap)}
+.lists > div{display:grid; gap:var(--s3); align-content:start}
+.lists ul{margin:0; padding:0; list-style:none; display:grid; gap:var(--s2)}
+.lists li{padding-left:var(--s4); position:relative}
+.lists li::before{content:""; position:absolute; left:0; top:.7em; width:6px; height:1.5px; background:var(--mark)}
+.sec > figure.c-5-12{margin-top:var(--group)}
+.stack{display:grid; gap:var(--s4); align-content:start; justify-items:start}
+
+/* CV */
+.cv-stack{display:grid; gap:var(--s7); margin-top:var(--section)}
+.cv-row{align-items:baseline; padding-top:var(--s5); border-top:var(--rule)}
+.cv-row > h2{grid-column:1 / span 3; font-size:15px; font-weight:500; color:var(--muted); letter-spacing:0}
+.cv-row > .cv-body{grid-column:4 / -1; display:grid; gap:var(--s5)}
+.cv-item{display:grid; grid-template-columns:8.5rem minmax(0,1fr); gap:var(--s5)}
+.cv-item > div{display:grid; gap:var(--s1)}
+.cv-item > .tags{display:flex; align-content:start}
+.cv-item ul{margin:var(--s2) 0 0; padding-left:1.1em; color:var(--muted); font-size:15px; display:grid; gap:var(--s1)}
+.cv-dl{grid-column:10 / -1; align-self:end; justify-self:end}
+
+/* Contact + footer */
+.contact{padding-top:var(--half)}
+.contact .sec-head{margin-bottom:0; padding-bottom:var(--half)}
+.contact .c-5-12{display:grid; gap:var(--s4)}
+.contact .email{font-size:clamp(20px, 2vw, 26px); font-weight:500; letter-spacing:-0.01em; overflow-wrap:anywhere}
+.inline{display:flex; flex-wrap:wrap; gap:var(--s3) var(--s5); align-items:baseline}
+.foot{padding-block:var(--s5) var(--s6); border-top:var(--rule); display:flex; justify-content:space-between; gap:var(--s3); flex-wrap:wrap}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px){
+  .toc{display:none}
+  .cs-content{grid-column:1 / -1}
+  .skills, .principles{grid-template-columns:repeat(2, minmax(0,1fr))}
+}
+@media (max-width: 760px){
+  :root{--header-h:64px}
+  .c-1-4, .c-5-12, .c-1-6, .c-7-12, .c-1-8, .hero h1, .page-head .lead-wrap, .prose, .about-hero .lead-wrap, .about-hero img, .cv-row > h2, .cv-row > .cv-body, .cv-dl{grid-column:1 / -1}
+  .cv-dl{justify-self:start}
+  .hero{padding-top:var(--s8)}
+  .split, .overview, .two-up, .quotes, .stats, .credits, .lists{grid-template-columns:minmax(0,1fr)}
+  .split{row-gap:var(--section)}
+  .cols, .steps, .meta{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .note{grid-template-columns:minmax(0,1fr) auto; gap:var(--s2) var(--s4)}
+  .note .when{grid-column:1 / -1; display:flex; gap:var(--s3)}
+  .case{padding:var(--s5)}
+  .cv-item{grid-template-columns:minmax(0,1fr); gap:var(--s1)}
+  nav.main a, .theme{padding:6px 8px}
+  .theme span{display:none}
+}
+@media (max-width: 480px){
+  .skills, .cols, .steps, .principles{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><filter id="ink" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="0.77"/></filter></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-arrow-right" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 16 16"><path d="M13.5 8h-11M7 3.5 2.5 8 7 12.5"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 16 16"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 16 16"><path d="M8 2.5v11M3.5 9 8 13.5 12.5 9"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5V3A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></symbol>
+</defs></svg>
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Consuelo Romano, home"><svg class="logo" viewBox="0 0 96 96" aria-hidden="true"><path d="M37.5958 27.7895C37.5492 32.6588 38.7557 37.4536 41.0921 41.6843C43.4529 45.9253 46.8622 49.4437 50.9719 51.8798C55.2269 54.4663 60.0356 55.7595 65.398 55.7595C70.1784 55.7595 74.4043 54.9474 78.0757 53.3233C81.747 51.6992 85.39 48.9623 89.0045 45.1126C89.4552 44.6117 89.9531 44.1584 90.4907 43.7593C90.8975 43.5528 91.3496 43.4596 91.8021 43.489H94.0754C95.3578 43.489 95.999 44.692 95.999 47.098C95.999 56.1206 93.9881 64.3314 89.9662 71.7303C85.9443 79.1292 80.2616 85.0236 72.918 89.4135C65.5738 93.8045 57.1808 96 47.7389 96C38.7626 96 30.6606 94.0451 23.433 90.1352C16.3193 86.3364 10.3818 80.5531 6.29642 73.4434C2.09881 66.2256 0 57.8648 0 48.361C0 39.2182 2.09837 31.0074 6.29511 23.7288C10.4919 16.4501 16.5246 10.6759 24.3933 6.40608C32.2623 2.13536 41.3261 0 51.5848 0C58.929 0 65.4864 1.11279 71.257 3.33837C77.0276 5.56394 81.6031 8.75139 84.9837 12.9007C88.3069 16.8881 90.1095 21.9876 90.0549 27.2465C90.0549 33.8631 87.8108 39.3669 83.3227 43.7579C78.8345 48.149 73.0931 50.3449 66.0984 50.3458C59.5701 50.3458 54.0615 48.1503 49.5725 43.7593C45.0834 39.3683 42.8394 33.9846 42.8402 27.6081C42.8402 22.9164 44.414 19.0668 47.5614 16.0593C50.7089 13.0518 54.7308 11.5481 59.6271 11.5481C59.9592 11.0077 60.1405 10.3833 60.151 9.74344C60.151 8.05916 58.927 7.21702 56.4789 7.21702C51.3492 7.21702 46.9193 9.23209 43.1893 13.2622C39.4592 17.2924 37.5947 22.1348 37.5958 27.7895Z"/></svg><span>Consuelo Romano</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="#about" data-nav="about">About</a>
+      <a href="cv.pdf" target="_blank" rel="noopener">CV <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      <button class="theme" type="button" id="theme" aria-label="Switch to dark mode">
+        <svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor" stroke="none"/></svg>
+        <span id="theme-label">Dark</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div id="content">
+
+<!-- ===================== HOME ===================== -->
+<main id="home">
+  <div class="wrap">
+    <section class="hero grid">
+      <h1 class="t-display">I’m a product designer with a passion for optimizing digital experiences in complex enterprise environments, while promoting inclusive and accessible design for everyone.</h1>
+      <div class="actions"><a class="btn" href="#contact">Get in touch <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+    </section>
+
+    <section class="sec grid" aria-labelledby="skills-h">
+      <div class="sec-head grid c-all">
+        <div class="head-stack c-1-8">
+          <h2 id="skills-h">Core skills</h2>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M11 7.5H29.5Q32 7.5 32 10V19.5Q32 22 29.5 22H18.5L12.5 27.5V22H10Q7.5 22 7.5 19.5V11"/>
+            <path d="M13 13H26M13 17.5H20.5"/>
+            <path d="M39 23A13 13 0 0 1 52 36"/><path d="M51.4 40A13 13 0 1 1 35.6 23.4"/>
+            <path d="M39 29.3A3.6 3.6 0 1 1 38.6 29.3"/><path d="M31.8 43.4Q39 35.5 45.6 43"/>
+            <path class="heavy" d="M48.5 46.5L57.5 55.5"/>
+          </svg>
+          <h3>UX Research</h3>
+          <p class="t-small">I start with research to understand people’s needs and pain points, then prototype, test and iterate until the solution works for them.</p>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M9.5 10H46.5Q50 10 50 13.5V22"/><path d="M50 27V38.5Q50 42 46.5 42H24"/><path d="M18.5 42H9.5Q6 42 6 38.5V13.5Q6 10 9.5 10"/>
+            <path d="M6.5 17H49"/>
+            <path d="M12 23H24.5V35.5H12.5Z"/>
+            <path d="M30 24H43M30 29.5H39.5"/>
+            <path d="M57 27.5L61 31.5L41.5 51L35 53.5L37.5 47Z"/><path d="M53 31.5L57 35.5"/>
+          </svg>
+          <h3>Product Design</h3>
+          <p class="t-small">User-friendly, inclusive products, delivered with flows, mockups, design systems and interaction guidelines developers can build from.</p>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M9 8H55Q58 8 58 11V39Q58 42 55 42H38"/><path d="M33 42H9Q6 42 6 39V11Q6 8 9 8"/>
+            <path d="M28 43L26.5 53M36 43L37.5 53M19.5 54.5H44.5"/>
+            <path d="M11.5 15H34M11.5 21H34M11.5 27H34M11.5 33H30"/><path d="M19.5 15.5V33.5"/>
+            <path d="M42 35V28.5M47.5 35V20M53 35V24.5"/>
+          </svg>
+          <h3>Enterprise UX</h3>
+          <p class="t-small">Complex business processes with 20-column data tables don’t make me bat an eyelash. I make employee tools friendlier and faster.</p>
+        </div>
+        <div class="skill">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 15.5C27.2 12 24.8 9.3 26.4 6.6C27.9 4.2 30.9 4.8 32 7.1"/><path d="M33.6 5.6C35 4.6 36.9 5 37.7 6.6C39.2 9.3 36.8 12 32 15.5"/>
+            <path d="M17.4 21.6A3.6 3.6 0 1 1 16.6 21.6"/>
+            <path d="M17 31V40.5H24.5L27.5 49.5H31"/><path d="M17.5 35.5L26.5 38.5"/>
+            <path d="M16 38.5A8 8 0 1 1 9.1 50.5"/>
+            <path d="M46.4 20.6A3.6 3.6 0 1 1 45.6 20.6"/>
+            <path d="M40 44V35Q40 30.5 44.5 30.5H47.5Q52 30.5 52 35V44"/><path d="M43.5 44.5V56M48.5 44.5V56"/>
+            <path d="M40.5 35.5L31.5 38.5"/>
+            <path d="M6 59.5Q32 62.5 58 59.5"/>
+          </svg>
+          <h3>Accessibility &amp; Inclusion</h3>
+          <p class="t-small">I design with and for people of all abilities and backgrounds, alongside accessibility consultants and with real users in testing, so everyone can take part.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec grid">
+      <div class="split">
+        <section class="col" id="work" aria-labelledby="work-h">
+          <div class="col-head"><h2 id="work-h">Work</h2><span class="label">2 case studies</span></div>
+          <ul class="rows cards">
+            <li><a class="case" href="#case-logthisplace">
+              <div class="thumb"><img src="images/ltp-final.jpg" alt="" loading="lazy"></div>
+              <div class="case-meta"><span class="client">City of Malmö</span><span class="type">Mobile App</span></div>
+              <div class="case-title"><h3>Log this Place</h3><span class="go" aria-hidden="true"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></div>
+              <p>A mobile app where people log and review how accessible places are.</p>
+            </a></li>
+            <li><a class="case" href="#case-haccess">
+              <div class="thumb"><img src="images/haccess-final.jpg" alt="" loading="lazy"></div>
+              <div class="case-meta"><span class="client">Handiscover</span><span class="type">SaaS Platform</span></div>
+              <div class="case-title"><h3>Haccess</h3><span class="go" aria-hidden="true"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></div>
+              <p>A tool that helps hotels and venues understand the accessibility of their property.</p>
+            </a></li>
+          </ul>
+        </section>
+
+        <section class="col" id="writing" aria-labelledby="writing-h">
+          <div class="col-head"><h2 id="writing-h">Writing</h2><span class="label">3 notes</span></div>
+          <ul class="rows list">
+            <li><a class="note" href="#note-accessibility-map">
+              <span class="when"><span class="num">Sep 18, 2026</span><span>4 min</span></span>
+              <div><h3>Accessibility is a map, not a checklist</h3><p class="t-small">Designing an app where the users are the ones auditing the city.</p></div>
+              <span class="go" aria-hidden="true"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+            </a></li>
+            <li><a class="note" href="#note-boring-screens">
+              <span class="when"><span class="num">Apr 21, 2026</span><span>2 min</span></span>
+              <div><h3>In praise of boring screens</h3><p class="t-small">Tools people use all day should feel quiet.</p></div>
+              <span class="go" aria-hidden="true"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+            </a></li>
+            <li><a class="note" href="#note-content-models">
+              <span class="when"><span class="num">Feb 09, 2026</span><span>2 min</span></span>
+              <div><h3>Design the data before the screens</h3><p class="t-small">Building content models with developers on complex platforms.</p></div>
+              <span class="go" aria-hidden="true"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+            </a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===================== CASE STUDY 1: LOG THIS PLACE ===================== -->
+<article id="case-logthisplace" data-section="work" hidden><div class="wrap page">
+  <a class="link back" href="#work"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> All work</a>
+  <div class="page-head grid">
+    <div class="lead-wrap">
+      <span class="label">Case study · Mobile app</span>
+      <h1 class="t-display">Log this Place</h1>
+      <p class="t-lead">A mobile app where people log and review how accessible places are in Malmö, giving the city an up-to-date picture built by its own citizens.</p>
+    </div>
+    <dl class="meta">
+      <div><dt class="label">Role</dt><dd>Lead UX/UI Designer</dd></div>
+      <div><dt class="label">Company</dt><dd>Handiscover</dd></div>
+      <div><dt class="label">Platform</dt><dd>iOS &amp; Android</dd></div>
+      <div><dt class="label">Year</dt><dd class="num">2021–2022</dd></div>
+    </dl>
+  </div>
+  <figure class="cover"><img src="images/ltp-final.jpg" alt="Four screens of Log this Place: the map with accessibility pins, onboarding, a place page for Moderna Museet, and a completed accessibility questionnaire"></figure>
+  <div class="overview">
+    <div><span class="label">Challenge</span><p>Malmö’s accessibility information was out of date, so people with disabilities couldn’t trust it to plan their day.</p></div>
+    <div><span class="label">What I did</span><p>Led design end to end: research, workshops, prototyping, testing, handoff and measuring after launch.</p></div>
+    <div><span class="label">Result</span><p>A community-driven app on iOS and Android, backed by the City of Malmö, with usage tracked in Firebase and Data Studio.</p></div>
+  </div>
+
+  <div class="cs-body">
+    <nav class="toc" aria-label="On this page">
+      <span class="label">On this page</span>
+      <ol>
+        <li><a href="#ltp-problem">Problem</a></li>
+        <li><a href="#ltp-goals">Goals</a></li>
+        <li><a href="#ltp-team">Role &amp; team</a></li>
+        <li><a href="#ltp-discover">01 Discover</a></li>
+        <li><a href="#ltp-define">02 Define</a></li>
+        <li><a href="#ltp-develop">03 Develop</a></li>
+        <li><a href="#ltp-deliver">04 Deliver</a></li>
+        <li><a href="#ltp-learnings">Learnings</a></li>
+      </ol>
+    </nav>
+
+    <div class="cs-content">
+      <section class="chap" id="ltp-problem">
+        <div class="two-up">
+          <div class="chap-head">
+            <span class="label">Problem</span>
+            <h2>A city map that no longer matched the city</h2>
+            <p>The City of Malmö had no up-to-date database of which places are accessible for people with different disabilities, especially mobility impairments. Its public Accessibility Guide existed, but Malmö had changed so fast over ten years that the information was no longer accurate.</p>
+          </div>
+          <figure><img src="images/ltp-guide.jpg" alt="The city’s old Accessibility Guide: a map of Malmö with category icons" loading="lazy"><figcaption>The existing Accessibility Guide.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="chap" id="ltp-goals">
+        <div class="chap-head">
+          <span class="label">Goals</span>
+          <p class="statement">Build a service that increases trust between citizens and the public sector, using digital technology for a new generation of citizen services.</p>
+        </div>
+        <div class="logos"><img src="images/ltp-logos.jpg" alt="Stakeholders: City of Malmö, Malmö Civic Lab, Civic Tech Sweden and Handiscover" loading="lazy"></div>
+        <div class="cols" style="--n:3">
+          <div><h3>Become the #1 source of accessibility data</h3><p>A strategic provider of accessibility data.</p></div>
+          <div><h3>Find product-market fit in government</h3><p>Gain trust and learn how municipalities work inside.</p></div>
+          <div><h3>Grow brand awareness</h3><p>A crafted, intuitive experience for users with disabilities.</p></div>
+        </div>
+      </section>
+
+      <section class="chap" id="ltp-team">
+        <div class="two-up top">
+          <div class="chap-head">
+            <span class="label">Role &amp; team</span>
+            <h2>Lead UX/UI Designer, working as one team</h2>
+            <p>I was in charge of the whole product creation process and guided the team through research, prototyping, visual design, testing, analysis and marketing strategy.</p>
+          </div>
+          <dl class="credits">
+            <div><dt>UX Research</dt><dd>Tirsa Rosa Ramos-Pedersen, Elizabeth Matkiewicz, Yesol Kim</dd></div>
+            <div><dt>Product</dt><dd>Sebastian Mutsson, Måns Adler</dd></div>
+            <div><dt>Accessibility consultants</dt><dd>Magnus Berglund, Rasmus Isaksson</dd></div>
+            <div><dt>Development</dt><dd>Fabien Coronis, Aleksey Nesterchuk</dd></div>
+          </dl>
+        </div>
+        <ol class="steps" aria-label="Process">
+          <li><span class="label">01</span><h3>Discover</h3><p>User research, surveys and interviews, benchmarking</p></li>
+          <li><span class="label">02</span><h3>Define</h3><p>Assessment criteria, journey mapping, key focus areas</p></li>
+          <li><span class="label">03</span><h3>Develop</h3><p>Personas and scenarios, prototype, usability testing</p></li>
+          <li><span class="label">04</span><h3>Deliver</h3><p>Final design, handoff and UI guidelines, measure</p></li>
+        </ol>
+      </section>
+
+      <section class="chap" id="ltp-discover">
+        <div class="chap-head">
+          <span class="label"><span>01</span><span>Discover</span></span>
+          <h2>Four things we learned in the field</h2>
+          <p>Field research with wheelchair users across Malmö, led by UX researchers Tirsa Rosa Ramos-Pedersen and Elizabeth Matkiewicz. We also benchmarked Wheelmap, AXS Map, AccessNow and iaccess Life.</p>
+        </div>
+        <div class="cols" style="--n:4">
+          <figure><img src="images/ltp-insight-1.jpg" alt="Two wheelchair users talking with a researcher in a town square" loading="lazy"><h3>What’s written rarely matches reality</h3><p>Accessibility shapes how people move and plan.</p></figure>
+          <figure><img src="images/ltp-insight-2.jpg" alt="A wheelchair user going down a portable ramp over stairs" loading="lazy"><h3>No one solution fits all</h3><p>Different wheelchairs, different requirements.</p></figure>
+          <figure><img src="images/ltp-insight-3.jpg" alt="Steps at the entrance of a shop" loading="lazy"><h3>Business owners need to be on board</h3><p>They should consider all customers’ needs.</p></figure>
+          <figure><img src="images/ltp-insight-4.jpg" alt="A group from the community on a walk with city staff" loading="lazy"><h3>The community creates the data</h3><p>The municipality adds a layer of trust.</p></figure>
+        </div>
+      </section>
+
+      <section class="chap" id="ltp-define">
+        <div class="two-up">
+          <div class="chap-head">
+            <span class="label"><span>02</span><span>Define</span></span>
+            <h2>From scenarios to root causes</h2>
+            <p>A workshop to understand potential users and what would motivate them to log data. Participants worked through scenarios and personas, brainstormed motivations, and dug into the root causes found in research.</p>
+          </div>
+          <figure><img src="images/ltp-workshop.jpg" alt="Workshop boards with brainstorming notes, a five-whys exercise and persona cards" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <section class="chap" id="ltp-develop">
+        <div class="chap-head">
+          <span class="label"><span>03</span><span>Develop</span></span>
+          <h2>Journeys, a first prototype and real feedback</h2>
+          <p>We mapped journeys for a manual and an automatic wheelchair user, with and without the app, then tested a prototype with four clear states: fully accessible, partially accessible, not accessible and unrated.</p>
+        </div>
+        <div class="two-up">
+          <figure><img src="images/ltp-journeys.jpg" alt="User journey maps comparing a wheelchair user’s day with and without the app" loading="lazy"><figcaption>Journeys with and without the app.</figcaption></figure>
+          <figure><img src="images/ltp-prototype.jpg" alt="Early prototype on a phone explaining the four accessibility ratings" loading="lazy"><figcaption>Early prototype.</figcaption></figure>
+        </div>
+        <div class="quotes">
+          <figure class="quote"><blockquote>It’s like a contribution. It doesn’t give me money but it gives me a feeling I’m doing something good for society.</blockquote><figcaption class="label">Usability test participant</figcaption></figure>
+          <figure class="quote"><blockquote>It must be able to be used with VoiceOver. Responsive to the font size and so on. Accessible to all users.</blockquote><figcaption class="label">Usability test participant</figcaption></figure>
+          <figure class="quote"><blockquote>Having user-provided data is in one way more reliable than if it’s provided by the restaurant.</blockquote><figcaption class="label">Usability test participant</figcaption></figure>
+          <figure class="quote"><blockquote>If someone puts “partially” everywhere, we don’t know what they mean. Pictures and comments are more relevant.</blockquote><figcaption class="label">Usability test participant</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="chap" id="ltp-deliver">
+        <div class="chap-head">
+          <span class="label"><span>04</span><span>Deliver</span></span>
+          <h2>Map-first, with detail instead of vague labels</h2>
+          <p>A short guided questionnaire covers parking, entrance, inside, toilet and payment, with example photos for every question so anyone can answer.</p>
+        </div>
+        <figure><img src="images/ltp-flows.jpg" alt="Grid of app screens: place cards on the map, the accessibility review flow, and questions about ramps, toilets and payment methods" loading="lazy"></figure>
+        <div class="two-up">
+          <div class="block">
+            <h3>Handoff</h3>
+            <p>Daily standups, weekly demos and remote sessions with the mobile developer to check the build against the design and the usability requirements.</p>
+          </div>
+          <figure><img src="images/ltp-handoff.jpg" alt="Handoff specs: accessibility icon states, the place page and the contribution tables" loading="lazy"></figure>
+        </div>
+        <div class="two-up">
+          <div class="block">
+            <h3>Measure</h3>
+            <p>After launch we tracked two dimensions in Google Firebase and Data Studio.</p>
+            <dl class="kv">
+              <div><dt>Places</dt><dd>Total points, categories, heatmap</dd></div>
+              <div><dt>Audience</dt><dd>Time on screen, views, devices</dd></div>
+            </dl>
+          </div>
+          <figure><img src="images/ltp-measure.jpg" alt="Google Data Studio dashboard with audience metrics, language and device breakdowns" loading="lazy"></figure>
+        </div>
+        <figure><img src="images/ltp-extra.jpg" alt="Log this Place branding, website, video series and app store screenshots" loading="lazy"><figcaption>Beyond the app: brand, website, app store material and the team video series.</figcaption></figure>
+      </section>
+
+      <section class="chap" id="ltp-learnings">
+        <div class="two-up">
+          <div class="chap-head">
+            <span class="label">Learnings</span>
+            <p class="statement">“One size fits all” doesn’t apply to inclusive products.</p>
+            <p>There are many ways of doing it right if you first identify your challenges, and for that you need efficient, actionable data. Strong, empowered teams bring consistent innovation and real value for customers and the business.</p>
+          </div>
+          <figure><img src="images/ltp-team.jpg" alt="Photos of the Log this Place team working and celebrating together" loading="lazy"></figure>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="More case studies">
+    <a href="#work"><span class="label"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> Back</span><span class="t">All work</span></a>
+    <a href="#case-haccess"><span class="label">Next case study <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span class="t">Haccess</span></a>
+  </nav>
+</div></article>
+
+<!-- ===================== CASE STUDY 2: HACCESS ===================== -->
+<article id="case-haccess" data-section="work" hidden><div class="wrap page">
+  <a class="link back" href="#work"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> All work</a>
+  <div class="page-head grid">
+    <div class="lead-wrap">
+      <span class="label">Case study · SaaS platform</span>
+      <h1 class="t-display">Haccess</h1>
+      <p class="t-lead">A SaaS platform that helps hotels and venues understand the accessibility of their property, and turns that knowledge into data people with disabilities can trust.</p>
+    </div>
+    <dl class="meta">
+      <div><dt class="label">Role</dt><dd>Lead UX/UI Designer</dd></div>
+      <div><dt class="label">Product</dt><dd>Haccess</dd></div>
+      <div><dt class="label">Platform</dt><dd>Web &amp; mobile</dd></div>
+      <div><dt class="label">Year</dt><dd class="num">2021</dd></div>
+    </dl>
+  </div>
+  <figure class="cover"><img src="images/haccess-cover.jpg" alt="Haccess web app on a laptop showing a step to pick facilities to classify, and the mobile app showing entrance images"></figure>
+  <div class="overview">
+    <div><span class="label">Opportunity</span><p>Gather accessibility data at scale, validate it efficiently and share it back with the community.</p></div>
+    <div><span class="label">Goal</span><p>Help businesses address accessibility with a platform that helps them understand their property or venue.</p></div>
+    <div><span class="label">My role</span><p>Research with property managers, ideation, content modelling with developers, prototyping, final design and handoff.</p></div>
+  </div>
+
+  <div class="cs-body">
+    <nav class="toc" aria-label="On this page">
+      <span class="label">On this page</span>
+      <ol>
+        <li><a href="#hac-context">Context</a></li>
+        <li><a href="#hac-empathize">01 Empathize</a></li>
+        <li><a href="#hac-ideation">02 Ideation</a></li>
+        <li><a href="#hac-prototyping">03 Prototyping</a></li>
+        <li><a href="#hac-final">04 Final design</a></li>
+        <li><a href="#hac-learnings">Learnings</a></li>
+      </ol>
+    </nav>
+
+    <div class="cs-content">
+      <section class="chap" id="hac-context">
+        <div class="chap-head">
+          <span class="label">Context</span>
+          <p class="statement">Build a strategy to gather accessibility data at scale, validate it efficiently and share it back with the community.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong class="num">20%+</strong><p>of the population has some form of disability</p></div>
+          <div class="stat"><strong class="num">1/3</strong><p>of people are affected, directly or indirectly</p></div>
+          <div class="stat"><strong class="num">5M</strong><p>data points: the growth goal for the end of 2021</p></div>
+        </div>
+        <ol class="steps" aria-label="Process">
+          <li><span class="label">01</span><h3>Empathize</h3><p>Interviews with owners and property managers</p></li>
+          <li><span class="label">02</span><h3>Ideation</h3><p>Pain points, empathy map, problem statement</p></li>
+          <li><span class="label">03</span><h3>Prototyping</h3><p>Content model and wireframes with developers</p></li>
+          <li><span class="label">04</span><h3>Testing</h3><p>Final design, documented flows and handoff</p></li>
+        </ol>
+      </section>
+
+      <section class="chap" id="hac-empathize">
+        <div class="chap-head">
+          <span class="label"><span>01</span><span>Empathize</span></span>
+          <h2>How do business owners feel about accessibility today?</h2>
+        </div>
+        <div class="quotes">
+          <figure class="quote"><blockquote>I don’t know what the problem is. My company cares about accessibility.</blockquote><figcaption class="label">Not aware of accessibility issues</figcaption></figure>
+          <figure class="quote"><blockquote>Hired a consultant who did tactile signs for the venues. It was good.</blockquote><figcaption class="label">Don’t understand accessibility</figcaption></figure>
+          <figure class="quote"><blockquote>Want to change but don’t know how. Don’t want my business to be judged.</blockquote><figcaption class="label">Afraid of communicating it wrongly</figcaption></figure>
+          <figure class="quote"><blockquote>Never had a disabled customer in my place. They just don’t come.</blockquote><figcaption class="label">Don’t see how it earns money</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="chap" id="hac-ideation">
+        <div class="chap-head">
+          <span class="label"><span>02</span><span>Ideation</span></span>
+          <h2>From pain points to a problem worth solving</h2>
+        </div>
+        <div class="cols" style="--n:2">
+          <div><span class="label">Problem statement</span><p class="strong">It’s hard to reach potential clients because they have little or no understanding of accessibility or of what a disabled person needs.</p></div>
+          <div><span class="label">Potential solution</span><p class="strong">If we generate curiosity through empathy, clients gain confidence and trust, and naturally turn to us for accessibility solutions.</p></div>
+        </div>
+        <figure><img src="images/haccess-ideation.jpg" alt="Ideation boards: user groups, an empathy map, and pain points linked to solutions" loading="lazy"></figure>
+        <div class="two-up">
+          <div class="block">
+            <span class="label">Constraint</span>
+            <h3>Every answer feeds an algorithm</h3>
+            <p>The questionnaire classifies each property against accessibility standards, so I mapped the questions, logic and data with the development team before designing any screen.</p>
+          </div>
+          <figure><img src="images/haccess-technical.jpg" alt="Spreadsheet mapping questionnaire logic, and the UX interface for the algorithm questions" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <section class="chap" id="hac-prototyping">
+        <div class="chap-head">
+          <span class="label"><span>03</span><span>Prototyping</span></span>
+          <h2>Modelling a property</h2>
+          <p>How does a property manager describe their building? Parking, entrance, rooms and dining areas. Some units are composite: a hotel’s “standard rooms” have a private bathroom and toilet but no kitchen, while “deluxe rooms” have all three.</p>
+        </div>
+        <figure><img src="images/haccess-prototype.jpg" alt="Wireframes of the property tree, unit type details and add-unit dialogs" loading="lazy"></figure>
+      </section>
+
+      <section class="chap" id="hac-final">
+        <div class="chap-head">
+          <span class="label"><span>04</span><span>Final design</span></span>
+          <h2>A guided classification flow</h2>
+          <p>Add property information, pick facilities, then add unit details. A side panel on every step explains what’s mandatory and why.</p>
+        </div>
+        <figure><img src="images/haccess-final.jpg" alt="Two final screens: selecting mandatory and optional facilities, and entering unit details for an entrance" loading="lazy"></figure>
+        <div class="two-up">
+          <div class="block">
+            <h3>Documented flows</h3>
+            <p>Complete flows for unit setup, the questionnaire, hospitality rooms and picture updates, with every state documented for development.</p>
+          </div>
+          <figure><img src="images/haccess-handoff.jpg" alt="Handoff board with connected flows for unit setup, questionnaire and picture update" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <section class="chap" id="hac-learnings">
+        <div class="two-up">
+          <div class="chap-head">
+            <span class="label">Learnings</span>
+            <p class="statement">Keep a user-centered approach, even for complex business systems.</p>
+            <p>Understand the problem in depth so you can design simple solutions, and build content models closely with the development team to shape the data structures.</p>
+          </div>
+          <figure><img src="images/haccess-workshop.jpg" alt="Consuelo leading a workshop with colleagues in front of a board of sticky notes" loading="lazy"></figure>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="More case studies">
+    <a href="#case-logthisplace"><span class="label"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> Previous case study</span><span class="t">Log this Place</span></a>
+    <a href="#work"><span class="label">Back <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span class="t">All work</span></a>
+  </nav>
+</div></article>
+
+<!-- ===================== ABOUT ===================== -->
+<article id="about" data-section="about" hidden><div class="wrap page">
+  <div class="about-hero grid">
+    <div class="lead-wrap">
+      <span class="label">About me</span>
+      <h1 class="t-display">Hola, nice to meet you!</h1>
+      <p class="t-lead">I’m from Argentina and live in Malmö, Sweden. A graphic designer by training and a UI developer by passion, I’ve spent 5+ years turning complex challenges into human-centered digital experiences.</p>
+      <p class="traits">Big thinker<span aria-hidden="true">·</span>Problem solver<span aria-hidden="true">·</span>Empathy advocate</p>
+    </div>
+    <img src="images/portrait.jpg" alt="Portrait of Consuelo Romano">
+  </div>
+
+  <section class="sec grid" aria-labelledby="now-h">
+    <div class="sec-head grid c-all" style="margin-bottom:0">
+      <h2 id="now-h" class="c-1-4">Right now</h2>
+      <dl class="c-5-12 now">
+        <div><dt class="label">Working</dt><dd>Product UX Designer at IKEA, in the Coworker Experience Design team, designing tools for 166,000 co-workers around the world.</dd></div>
+        <div><dt class="label">Certified</dt><dd>CPACC, Certified Professional in Accessibility Core Competencies (IAAP).</dd></div>
+        <div><dt class="label">Studying</dt><dd>Master in Digital Accessibility for Education, Communication and Design, Universitat de Barcelona.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec grid" aria-labelledby="led-h">
+    <div class="sec-head grid c-all" style="margin-bottom:0">
+      <h2 id="led-h" class="c-1-4">What led me here</h2>
+      <div class="c-5-12 stack">
+        <p class="statement">Coming from an under-developed background, I’ve experienced how technology shapes and changes human lives. That pushes me to create products where everybody can take part and feel included.</p>
+        <p><a class="link" href="#" id="gsma">Watch “Digital Inclusion Changes Women’s Lives” (GSMA, 2019) <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a> <mark class="todo">add the link</mark></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec grid" aria-labelledby="how-h">
+    <div class="sec-head grid c-all">
+      <h2 id="how-h" class="c-1-4">How I work</h2>
+    </div>
+    <div class="c-all principles">
+      <div class="principle">
+        <h3>Simple solutions for complex problems</h3>
+        <p class="t-small">Meaningful, thoughtful contributions to viable products, in the simplest and most effective way.</p>
+      </div>
+      <div class="principle">
+        <h3>Empathy from experience</h3>
+        <p class="t-small">My background pushes me to lead. I feel committed to my team and take strong ownership of my work.</p>
+      </div>
+      <div class="principle">
+        <h3>The end-to-end experience</h3>
+        <p class="t-small">I think about the whole journey, and work with other disciplines to uncover opportunities.</p>
+      </div>
+      <div class="principle">
+        <h3>Long-term thinking</h3>
+        <p class="t-small">Durable solutions often mean betting on unknown paths. That shapes my decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec grid" aria-labelledby="look-h">
+    <div class="sec-head grid c-all">
+      <h2 id="look-h" class="c-1-4">What I’m looking for</h2>
+      <div class="c-5-12 stack">
+        <p class="statement">Innovation-driven companies and teams with a strong collaborative culture that promote inclusive and diverse work environments.</p>
+        <a class="btn" href="cv.pdf" target="_blank" rel="noopener">View CV <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      </div>
+    </div>
+    <figure class="c-5-12"><img src="images/team.jpg" alt="Consuelo celebrating with her team, two of them in wheelchairs, holding a trophy" loading="lazy"><figcaption>With the Handiscover team.</figcaption></figure>
+  </section>
+
+  <section class="sec grid" aria-labelledby="out-h">
+    <div class="sec-head grid c-all">
+      <h2 id="out-h" class="c-1-4">Outside of work</h2>
+      <p class="c-5-12 muted">I think a lot about growing, as a designer and as a person.</p>
+    </div>
+    <div class="c-5-12 lists">
+      <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 52C20 43 13 36 13 27C13 21 17.5 17 22.5 17C26.5 17 29.8 19.3 32 23"/><path d="M34.6 19.8C36.6 17.9 39 17 41.5 17C46.5 17 51 21 51 27C51 36 44 43.5 33.5 51"/><path d="M52 6.5V13.5M48.5 10H55.5"/><path d="M10 9.5V14.5M7.5 12H12.5"/><path d="M57 22.5V25.5M55.5 24H58.5"/></svg><span class="label">A superfan of</span><ul><li>Buying books (that I’ll never have time to read)</li><li>Self-improvement podcasts</li><li>Art side projects</li><li>Yoga and long walks</li></ul></div>
+      <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 54H27M37 54H56"/><path d="M32 54V30"/><path d="M32 39C24 39 19.5 33 19.5 26.5C27.5 26.5 32 31 32 39"/><path d="M32 32.5C32 24.5 37 19 45 19C45 27 40 32.5 32.5 32.5"/></svg><span class="label">What matters to me</span><ul><li>Creative living</li><li>Continuous self-improvement</li><li>Peer collaboration</li><li>Knowledge sharing</li></ul></div>
+    </div>
+  </section>
+</div></article>
+
+<!-- ===================== WRITING =====================
+     To add a post: copy one <article>, give it a new id starting with "note-",
+     and add a matching row to the Writing list on the home page. -->
+<article id="note-accessibility-map" data-section="writing" hidden><div class="wrap page">
+  <a class="link back" href="#writing"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> All writing</a>
+  <div class="page-head grid"><div class="lead-wrap"><span class="label num">Sep 18, 2026 · 4 min read</span><h1 class="t-display">Accessibility is a map, not a checklist</h1></div></div>
+  <div class="grid"><div class="prose">
+    <p>Most accessibility work I had done before lived in a checklist: contrast ratios, focus states, alt text. Necessary, and still incomplete.</p>
+    <p>Designing Log this Place moved the question out of the screen and into the street. Is there a step at the door? Is the toilet wide enough for a wheelchair? No style guide can answer that. The people who visit have to tell each other.</p>
+    <blockquote>The best accessibility data comes from the person who just tried to get in.</blockquote>
+    <p>So the design job became making that report quick and clear, on a phone, standing outside.</p>
+  </div></div>
+  <nav class="pager" aria-label="More writing">
+    <a href="#note-content-models"><span class="label"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> Older</span><span class="t">Design the data before the screens</span></a>
+    <a href="#note-boring-screens"><span class="label">Next <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span class="t">In praise of boring screens</span></a>
+  </nav>
+</div></article>
+
+<article id="note-boring-screens" data-section="writing" hidden><div class="wrap page">
+  <a class="link back" href="#writing"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> All writing</a>
+  <div class="page-head grid"><div class="lead-wrap"><span class="label num">Apr 21, 2026 · 2 min read</span><h1 class="t-display">In praise of boring screens</h1></div></div>
+  <div class="grid"><div class="prose">
+    <p>A tool someone opens every morning is closer to furniture than to a poster. It should be quiet, predictable and easy to scan.</p>
+    <p>Save the color for the one thing that needs attention today.</p>
+  </div></div>
+  <nav class="pager" aria-label="More writing">
+    <a href="#note-accessibility-map"><span class="label"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> Previous</span><span class="t">Accessibility is a map, not a checklist</span></a>
+    <a href="#note-content-models"><span class="label">Next <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span class="t">Design the data before the screens</span></a>
+  </nav>
+</div></article>
+
+<article id="note-content-models" data-section="writing" hidden><div class="wrap page">
+  <a class="link back" href="#writing"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> All writing</a>
+  <div class="page-head grid"><div class="lead-wrap"><span class="label num">Feb 09, 2026 · 2 min read</span><h1 class="t-display">Design the data before the screens</h1></div></div>
+  <div class="grid"><div class="prose">
+    <p>On Haccess, the hardest design problem wasn’t a screen. It was how to describe a hotel: which rooms have which bathrooms, which floors have which entrances.</p>
+    <p>Building that content model with the developers first made every screen after it simpler.</p>
+  </div></div>
+  <nav class="pager" aria-label="More writing">
+    <a href="#note-boring-screens"><span class="label"><svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> Previous</span><span class="t">In praise of boring screens</span></a>
+    <a href="#note-accessibility-map"><span class="label">Next <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span class="t">Accessibility is a map, not a checklist</span></a>
+  </nav>
+</div></article>
+
+</div>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="sec-head grid">
+      <h2 id="contact-h" class="c-1-4">Let’s talk</h2>
+      <div class="c-5-12">
+        <span class="email" id="email">hello@consueloromano.com</span>
+        <div class="inline">
+          <button class="link copy-link" type="button" id="copy"><span id="copy-label">Copy email</span><svg class="ui-icon" aria-hidden="true"><use href="#i-copy"/></svg></button>
+          <a class="link" href="https://www.linkedin.com/in/consuelo-romano/" target="_blank" rel="noopener">LinkedIn <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span class="label num">© 2026 Consuelo Romano</span>
+      <button class="btn-text" type="button" id="totop">Back to top <svg class="ui-icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var home = document.getElementById('home');
+  var pages = document.querySelectorAll('article');
+  var navs = document.querySelectorAll('[data-nav]');
+  var header = document.querySelector('header.site');
+  var homeScroll = 0, onHome = true;
+  var names = {about:'About', cv:'CV'};
+
+  // Hash router: a page id opens that page; an id inside a page opens the page and scrolls to it.
+  var firstRoute = true;
+  var currentView = null;
+  var jump = function(top){ window.scrollTo({top: top, behavior: 'instant'}); };
+  function route(){
+    var id = location.hash.slice(1);
+    var el = id && document.getElementById(id);
+    var page = el ? (el.tagName === 'ARTICLE' ? el : el.closest('article')) : null;
+    var isPage = !!page;
+    var view = isPage ? page : home;
+    var viewChanged = view !== currentView;   // switching pages: jump instantly and fade in, never scroll across
+
+    if (onHome && isPage) homeScroll = window.scrollY;
+    pages.forEach(function(p){ p.hidden = p !== page; });
+    home.hidden = isPage;
+    if (viewChanged && !firstRoute){ view.classList.remove('enter'); void view.offsetWidth; view.classList.add('enter'); }
+
+    var section = isPage ? page.dataset.section : '';
+    navs.forEach(function(n){ n.dataset.nav === section ? n.setAttribute('aria-current','page') : n.removeAttribute('aria-current'); });
+
+    var h1 = isPage && page.querySelector('h1');
+    document.title = isPage ? (names[page.id] || h1.textContent) + ' · Consuelo Romano' : 'Consuelo Romano';
+
+    // Smooth scrolling only for jumps within the same page; anything that changes the page is instant.
+    var how = (viewChanged || firstRoute) ? 'instant' : 'smooth';
+    if (isPage && el === page){ jump(0); h1.setAttribute('tabindex','-1'); h1.focus({preventScroll:true}); }
+    else if (isPage) {
+      el.scrollIntoView({behavior: how});
+      // Images above the target can finish loading after the jump and push it down; re-align for a moment.
+      var t0 = Date.now();
+      page.querySelectorAll('img').forEach(function(img){
+        if (img.complete) return;
+        img.addEventListener('load', function(){
+          if (Date.now() - t0 < 4000 && location.hash.slice(1) === id) el.scrollIntoView({behavior:'instant'});
+        }, {once:true});
+      });
+    }
+    else if (id === 'home') window.scrollTo({top:0, behavior: how});
+    else if (el) el.scrollIntoView({behavior: how});
+    else if (!onHome) jump(homeScroll);
+    onHome = !isPage;
+    currentView = view;
+    firstRoute = false;
+    watchToc(isPage ? page : null);
+  }
+
+  // Scroll-spy for the case-study index: the active chapter is the last one whose top
+  // has passed 30% of the viewport. Reads scroll position directly, so it's always in sync.
+  var spyPage = null;
+  function updateToc(){
+    if (!spyPage) return;
+    var links = spyPage.querySelectorAll('.toc a');
+    if (!links.length) return;
+    var chaps = spyPage.querySelectorAll('.chap[id]'), line = window.innerHeight * 0.3, current = chaps[0];
+    chaps.forEach(function(c){ if (c.getBoundingClientRect().top <= line) current = c; });
+    links.forEach(function(a){
+      if (current && a.getAttribute('href') === '#' + current.id) a.setAttribute('aria-current','true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  function watchToc(page){ spyPage = page; updateToc(); }
+  window.addEventListener('scroll', updateToc, {passive:true});
+  window.addEventListener('resize', updateToc);
+
+  window.addEventListener('hashchange', route);
+  route();
+
+  document.getElementById('gsma').addEventListener('click', function(e){ if (this.getAttribute('href') === '#') e.preventDefault(); });
+  document.getElementById('totop').addEventListener('click', function(){ window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); });
+  window.addEventListener('scroll', function(){ header.classList.toggle('scrolled', window.scrollY > 8); }, {passive:true});
+
+  // Light by default, independent of the viewer's or OS theme; only the header switch turns dark on, and it's remembered.
+  var root = document.documentElement, label = document.getElementById('theme-label'), toggle = document.getElementById('theme');
+  function setTheme(t){
+    root.setAttribute('data-mode', t);
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+    toggle.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('cr-mode'); } catch(e){}
+  setTheme(saved === 'dark' ? 'dark' : 'light');
+  toggle.addEventListener('click', function(){
+    var next = root.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    try { localStorage.setItem('cr-mode', next); } catch(e){}
+  });
+
+  var btn = document.getElementById('copy');
+  btn.addEventListener('click', function(){
+    var el = document.getElementById('email');
+    var label = document.getElementById('copy-label');
+    function done(){ label.textContent = 'Copied'; setTimeout(function(){ label.textContent = 'Copy email'; }, 1600); }
+    function fallback(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = 'Press ⌘C to copy'; }
+    try { navigator.clipboard.writeText(el.textContent).then(done, fallback); } catch(e){ fallback(); }
+  });
+})();
+</script>

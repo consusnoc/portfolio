@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Consuelo Romano — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* CV, A4, Indigo and Clay. Same tokens as the portfolio. */
+:root{
+  --bg:#ffffff; --linen:#f6f2ec; --fg:#1b1d2b; --muted:#5d5a66; --divider:#e4ddd3;
+  --mark:#323d86; --clay-bg:#efd9cf; --clay-fg:#6e3029;
+}
+@page{size:A4; margin:0}
+*{box-sizing:border-box}
+html,body{margin:0; background:var(--bg); color:var(--fg); font:400 9.2pt/1.5 "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+h1,h2,h3,p,ul{margin:0}
+.page{width:210mm; height:297mm; display:grid; grid-template-columns:62mm 1fr; overflow:hidden; page-break-after:always}
+.page:last-child{page-break-after:auto}
+aside{background:var(--linen); padding:16mm 8mm 14mm 12mm; display:flex; flex-direction:column; gap:7mm}
+main{padding:16mm 14mm 14mm 11mm; display:flex; flex-direction:column; gap:6mm}
+
+.logo{width:12mm; height:12mm}
+.logo path{fill:var(--fg)}
+.name{font-size:20pt; font-weight:600; letter-spacing:-0.02em; line-height:1.1; margin-top:4mm}
+.role{font-size:10pt; font-weight:500; color:var(--mark); margin-top:1.5mm}
+
+.block{display:flex; flex-direction:column; gap:2mm}
+h2{font-size:8pt; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--mark)}
+aside p, aside li{font-size:8.6pt}
+.muted{color:var(--muted)}
+.list{list-style:none; padding:0; display:flex; flex-direction:column; gap:1mm}
+.edu{display:flex; flex-direction:column; gap:2.4mm}
+.edu div{display:flex; flex-direction:column}
+.edu strong, .cert strong{font-weight:500}
+.tags{display:flex; flex-wrap:wrap; gap:1.2mm}
+.tag{background:var(--clay-bg); color:var(--clay-fg); padding:.6mm 2mm; border-radius:1mm; font-size:8pt}
+
+.summary{font-size:10pt; line-height:1.55; padding-bottom:5mm; border-bottom:1px solid var(--divider)}
+.job{display:grid; grid-template-columns:1fr auto; column-gap:4mm; row-gap:.6mm; break-inside:avoid}
+.job h3{font-size:10.5pt; font-weight:600; letter-spacing:-0.01em}
+.job .when{font-size:8.4pt; color:var(--muted); text-align:right; white-space:nowrap; padding-top:.6mm}
+.job .where{grid-column:1 / -1; font-size:8.8pt; color:var(--muted)}
+.job ul{grid-column:1 / -1; margin-top:1.4mm; padding-left:3.6mm; display:flex; flex-direction:column; gap:.8mm}
+.job li{padding-left:.6mm}
+.job li::marker{color:var(--mark)}
+.jobs{display:flex; flex-direction:column; gap:4.6mm}
+.foot{margin-top:auto; font-size:7.6pt; color:var(--muted); display:flex; justify-content:space-between}
+a{color:inherit; text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <aside>
+    <div>
+      <svg class="logo" viewBox="0 0 96 96" aria-hidden="true"><path d="M37.5958 27.7895C37.5492 32.6588 38.7557 37.4536 41.0921 41.6843C43.4529 45.9253 46.8622 49.4437 50.9719 51.8798C55.2269 54.4663 60.0356 55.7595 65.398 55.7595C70.1784 55.7595 74.4043 54.9474 78.0757 53.3233C81.747 51.6992 85.39 48.9623 89.0045 45.1126C89.4552 44.6117 89.9531 44.1584 90.4907 43.7593C90.8975 43.5528 91.3496 43.4596 91.8021 43.489H94.0754C95.3578 43.489 95.999 44.692 95.999 47.098C95.999 56.1206 93.9881 64.3314 89.9662 71.7303C85.9443 79.1292 80.2616 85.0236 72.918 89.4135C65.5738 93.8045 57.1808 96 47.7389 96C38.7626 96 30.6606 94.0451 23.433 90.1352C16.3193 86.3364 10.3818 80.5531 6.29642 73.4434C2.09881 66.2256 0 57.8648 0 48.361C0 39.2182 2.09837 31.0074 6.29511 23.7288C10.4919 16.4501 16.5246 10.6759 24.3933 6.40608C32.2623 2.13536 41.3261 0 51.5848 0C58.929 0 65.4864 1.11279 71.257 3.33837C77.0276 5.56394 81.6031 8.75139 84.9837 12.9007C88.3069 16.8881 90.1095 21.9876 90.0549 27.2465C90.0549 33.8631 87.8108 39.3669 83.3227 43.7579C78.8345 48.149 73.0931 50.3449 66.0984 50.3458C59.5701 50.3458 54.0615 48.1503 49.5725 43.7593C45.0834 39.3683 42.8394 33.9846 42.8402 27.6081C42.8402 22.9164 44.414 19.0668 47.5614 16.0593C50.7089 13.0518 54.7308 11.5481 59.6271 11.5481C59.9592 11.0077 60.1405 10.3833 60.151 9.74344C60.151 8.05916 58.927 7.21702 56.4789 7.21702C51.3492 7.21702 46.9193 9.23209 43.1893 13.2622C39.4592 17.2924 37.5947 22.1348 37.5958 27.7895Z"/></svg>
+      <h1 class="name">Consuelo Romano</h1>
+      <p class="role">Product UX Designer · CPACC</p>
+    </div>
+
+    <div class="block">
+      <h2>Contact</h2>
+      <ul class="list">
+        <li>Malmö, Sweden</li>
+        <li><a href="mailto:hello@consueloromano.com">hello@consueloromano.com</a></li>
+        <li><a href="https://consueloromano.com">consueloromano.com</a></li>
+        <li><a href="https://www.linkedin.com/in/consuelo-romano/">linkedin.com/in/consuelo-romano</a></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>Expertise</h2>
+      <div class="tags">
+        <span class="tag">Digital accessibility</span><span class="tag">WCAG</span><span class="tag">Inclusive design</span><span class="tag">DEI</span><span class="tag">UX research</span><span class="tag">Interaction design</span><span class="tag">UI design</span><span class="tag">Design systems</span><span class="tag">Prototyping</span><span class="tag">Design Thinking</span><span class="tag">Workshops</span><span class="tag">Branding</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Tools and code</h2>
+      <ul class="list">
+        <li>Figma, Adobe Creative Suite, Sketch, Principle</li>
+        <li>HTML, CSS and SASS, JavaScript, React</li>
+        <li>Git and GitHub, VS Code, Jira, WordPress</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>Languages</h2>
+      <ul class="list">
+        <li>Spanish <span class="muted">· native</span></li>
+        <li>English <span class="muted">· native or bilingual</span></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main>
+    <p class="summary">Big thinker, problem solver and empathy-driven UX designer with 5+ years of experience turning complex challenges into intuitive, human-centered digital experiences. CPACC certified and passionate about accessibility: I design inclusive products that uphold human rights, dignity and equity, combining UX strategy, research and interaction design with accessibility standards and universal design principles.</p>
+
+    <div class="block">
+      <h2>Experience</h2>
+      <div class="jobs">
+        <div class="job">
+          <h3>Product UX Designer, IKEA</h3><span class="when">Nov 2022 – Present</span>
+          <span class="where">Coworker Experience Design · Malmö, Sweden</span>
+          <ul><li>Designing the digital capabilities that IKEA’s 166,000 co-workers around the world need to meet the demands of the future IKEA.</li></ul>
+        </div>
+
+        <div class="job">
+          <h3>UX/UI Designer, Tetra Pak</h3><span class="when">Aug – Oct 2022</span>
+          <span class="where">Mobile applications design team · Lund, Sweden</span>
+          <ul><li>Facilitated a workshop and researched the company’s app ecosystem, evaluating improvements with the Experience Design Manager.</li></ul>
+        </div>
+
+        <div class="job">
+          <h3>Lead UX/UI Designer, Handiscover</h3><span class="when">Jun 2020 – Jul 2022</span>
+          <span class="where">Malmö, Sweden</span>
+          <ul>
+            <li>Designed two products from idea to launch to collect and share accessibility data: Haccess, a B2B SaaS platform, and Log this Place, a mobile app with the City of Malmö.</li>
+            <li>Made sure accessibility requirements were met throughout development and validated concepts in testing sessions.</li>
+            <li>Improved the onboarding and checkout flows of the B2C service.</li>
+            <li>Turned research and interview insights into flows, diagrams, concept mockups and high-fidelity prototypes.</li>
+            <li>Worked closely with the CEO, product managers, developers, researchers, marketing and external stakeholders, and advocated for a design-driven culture.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3>UX/UI Designer + UI Developer, Hexagon Consulting</h3><span class="when">Oct 2018 – Jan 2020</span>
+          <span class="where">Innovation Team · Buenos Aires, Argentina</span>
+          <ul>
+            <li>Owned full design production for mobile and web applications, using Design Thinking to identify users’ needs.</li>
+            <li>Led a cross-team web app for medical sales representatives that won the 2019 SAP Cloud Platform Developer Challenge, owning the interface design and its HTML5/CSS3 implementation.</li>
+            <li>Designed mobile apps for Argentina’s major gas transportation company that simplified complex daily processes for employees across the country.</li>
+            <li>Customized and extended SAP Fiori’s design system to match client branding, in design and code.</li>
+            <li>Created wireframes and prototypes for augmented reality and IoT apps, and interactive prototypes for demos and corporate events.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Consuelo Romano · CV</span><span>1 / 2</span></div>
+  </main>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <aside>
+    <div class="block">
+      <h2>Education</h2>
+      <div class="edu">
+        <div><strong>Master in Digital Accessibility for Education, Communication and Design (EARED)</strong><span class="muted">Universitat de Barcelona · 2025–2026</span></div>
+        <div><strong>Product Management</strong><span class="muted">Universidad Tecnológica Nacional · 2022</span></div>
+        <div><strong>Bachelor in Graphic Design</strong><span class="muted">Universidad de Buenos Aires · 2011–2018</span></div>
+        <div><strong>Front-end Developer</strong><span class="muted">ADA IT Coding Bootcamp · 2017</span></div>
+        <div><strong>Web Developer</strong><span class="muted">Comunidad IT · 2017</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Certifications</h2>
+      <div class="edu cert">
+        <div><strong>CPACC</strong><span class="muted">Certified Professional in Accessibility Core Competencies (IAAP)</span></div>
+        <div><strong>Auditing Design Systems for Accessibility</strong><span class="muted">LinkedIn Learning</span></div>
+        <div><strong>UX Research: Being Flexible</strong><span class="muted">LinkedIn Learning</span></div>
+        <div><strong>UX Design: Creating Personas</strong><span class="muted">LinkedIn Learning</span></div>
+        <div><strong>Figma for UX Design</strong><span class="muted">LinkedIn Learning</span></div>
+        <div><strong>Gestalt Psychology and Web Design</strong><span class="muted">LinkedIn Learning</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Recognition</h2>
+      <div class="edu">
+        <div><strong>SAP Cloud Platform Developer Challenge</strong><span class="muted">Winner, 2019 (Hexagon Consulting)</span></div>
+        <div><strong>Featured work</strong><span class="muted">Typography II (Cosgaya) and Computer Graphic Design, Universidad de Buenos Aires</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="block">
+      <h2>Experience, continued</h2>
+      <div class="jobs">
+        <div class="job">
+          <h3>Web Developer, Vix Inc.</h3><span class="when">2017 – Sep 2018</span>
+          <ul>
+            <li>Built two internal apps that measure the reach and engagement of marketing campaigns in the US and Latin America.</li>
+            <li>Turned high-fidelity mockups into production code with the UI/UX Design Lead (HTML, CSS, SASS, jQuery, Bootstrap, amCharts) and deployed with Git.</li>
+            <li>Delivered in an agile Scrum/Kanban team, often about 30% faster than other developers.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3>Web Designer and Developer, Freelance</h3><span class="when">Jul 2016 – Dec 2017</span>
+          <span class="where">Remote</span>
+          <ul>
+            <li>Designed and built websites from early concept to production with HTML, CSS, JavaScript and React.</li>
+            <li>Managed content with WordPress and Contentful, working directly with clients.</li>
+            <li>Created visual identities, logos and stationery, plus web and email campaigns for several brands.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Community</h2>
+      <div class="jobs">
+        <div class="job"><h3>GSMA Women 4 Tech</h3><span class="when">2019</span><span class="where">Featured in the documentary “Digital Inclusion Changes Women’s Lives”</span></div>
+        <div class="job"><h3>Volunteer and facilitator, DXS Conference</h3><span class="when">Aug 2019</span><span class="where">Conference on service design innovation and business transformation</span></div>
+        <div class="job"><h3>Beginners’ channel moderator, freeCodeCamp Buenos Aires</h3><span class="when">From 2018</span></div>
+        <div class="job"><h3>Graphic designer, Fortalecer Misiones Civil Association</h3><span class="when">Jul – Dec 2017</span><span class="where">Event promotion material and weekly newsletters</span></div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Consuelo Romano · CV</span><span>2 / 2</span></div>
+  </main>
+</div>
+
+</body>
+</html>
